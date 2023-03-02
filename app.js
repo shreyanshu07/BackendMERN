@@ -6,6 +6,7 @@ const app=express();
 const dotenv=require('dotenv');
 dotenv.config({path:'./.env'})
 const DB=process.env.DATABASE_URL;
+const PORT= process.env.PORT || 5000 
 //MiddleWare
 // app.use('/',(req,res)=>{
 //     res.send("This is starting application")
@@ -20,5 +21,5 @@ mongoose.connect(DB,{
 })
 .then(()=>console.log("Successfully Connected"))
 .then(()=>{
-    app.listen(5000);
+    app.listen(`${PORT}`);
 }).catch((err)=>console.log(err))
